@@ -46,12 +46,15 @@ const postOrders = async (req, res) => {
     text: req.body,
   });
   res.status(200).json(ord); */
-  const { name, quantity, price } = req.body;
-  let order3 = new Orders2({
+  const name = req.body.name;
+  const price = req.body.price;
+  const quantity = req.body.quantity;
+  const order3 = new Orders2({
     name,
     quantity,
     price,
   });
+
   order3
     .save()
     .then(() => res.json("Order has been added "))
